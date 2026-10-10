@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Assistant - Chatbot Serbaguna</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Marked.js for rendering Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="chat-app">
+    <!-- Header -->
+    <header class="chat-header">
+      <div class="bot-info">
+        <div class="bot-avatar">
+          <i class="fa-solid fa-robot"></i>
+          <span class="status-indicator"></span>
+        </div>
+        <div>
+          <h2>BotGweh AI</h2>
+          <p class="bot-status">Online &bull; Siap Membantu (Teks, Gambar, PDF, Audio)</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="clear-chat-btn" title="Bersihkan Chat" class="icon-btn">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Chat Messages Box -->
+    <div id="chat-box" class="chat-box">
+      <!-- Welcome Screen -->
+      <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <h3>Halo! Ada yang bisa kubantu hari ini?</h3>
+        <p>Kamu bisa mengobrol santai, tanya jawab, atau melampirkan file gambar, dokumen, dan audio untuk dianalisis.</p>
+        
+        <div class="suggestion-chips">
+          <button class="chip" data-prompt="Jelaskan cara kerja AI secara sederhana dan menarik!">
+            <i class="fa-regular fa-lightbulb"></i> Jelaskan cara kerja AI
+          </button>
+          <button class="chip" data-prompt="Bantu buatkan rencana belajar pemrograman selama 1 bulan">
+            <i class="fa-solid fa-graduation-cap"></i> Rencana belajar coding
+          </button>
+          <button class="chip" data-prompt="Buatkan ide konten media sosial untuk jualan minuman kekinian">
+            <i class="fa-solid fa-bullhorn"></i> Ide konten jualan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <footer class="chat-footer">
+      <!-- File Preview Bar -->
+      <div id="file-preview-container" class="file-preview-container hidden">
+        <div class="file-preview-content">
+          <span id="file-preview-icon" class="preview-icon"><i class="fa-solid fa-file"></i></span>
+          <img id="image-preview-thumb" class="preview-thumb hidden" alt="preview" />
+          <div class="file-preview-info">
+            <span id="file-preview-name" class="preview-filename">file.png</span>
+            <span id="file-preview-size" class="preview-filesize">0 KB</span>
+          </div>
+        </div>
+        <button type="button" id="remove-file-btn" class="remove-file-btn" title="Hapus file">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <!-- Hidden File Input -->
+        <input 
+          type="file" 
+          id="file-input" 
+          accept="image/*,application/pdf,text/plain,audio/*" 
+          style="display: none;" 
+        />
+        
+        <!-- Attach File Button -->
+        <button type="button" id="attach-btn" class="icon-btn attach-btn" title="Lampirkan Gambar / Dokumen / Audio">
+          <i class="fa-solid fa-paperclip"></i>
+        </button>
+
+        <!-- Text Input -->
+        <div class="input-wrapper">
+          <textarea 
+            id="user-input" 
+            placeholder="Ketik pesan atau lampirkan file..." 
+            rows="1" 
+            autocomplete="off"
+          ></textarea>
+        </div>
+
+        <!-- Send Button -->
+        <button type="submit" id="send-btn" class="send-btn" title="Kirim Pesan">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
